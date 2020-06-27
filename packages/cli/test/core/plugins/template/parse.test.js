@@ -91,8 +91,7 @@ function createCompiler(options = {}) {
   instance.tags = {
     htmlTags: tag.combineTag(tag.HTML_TAGS, userDefinedTags.htmlTags),
     wxmlTags: tag.combineTag(tag.WXML_TAGS, userDefinedTags.wxmlTags),
-    html2wxmlMap: tag.combineTagMap(tag.HTML2WXML_MAP, userDefinedTags.html2wxmlMap),
-    selfCloseTags: tag.SELF_CLOSE_TAGS
+    html2wxmlMap: tag.combineTagMap(tag.HTML2WXML_MAP, userDefinedTags.html2wxmlMap)
   };
   initPlugin(instance);
 
