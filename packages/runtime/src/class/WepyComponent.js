@@ -1,6 +1,6 @@
 import Base from './Base';
 import Watcher from '../observer/watcher';
-import { isArr, isPlainObject } from '../../shared/index';
+import { isArr, isPlainObject } from '../shared/index';
 
 import { renderNextTick } from '../util/next-tick';
 

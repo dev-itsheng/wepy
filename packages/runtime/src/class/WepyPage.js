@@ -1,5 +1,5 @@
 import WepyComponent from './WepyComponent';
-import { isStr, isNum, isObj, isUndef, isFunc } from '../../shared/index';
+import { isStr, isNum, isObj, isUndef, isFunc } from '../shared/index';
 
 export default class WepyPage extends WepyComponent {
   $launch(url, params) {

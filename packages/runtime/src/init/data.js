@@ -1,5 +1,5 @@
 import { observe } from './../observer/index';
-import { noop, clone } from './../../shared/index';
+import { noop, clone } from '../shared/index';
 
 export const sharedPropertyDefinition = {
   enumerable: true,

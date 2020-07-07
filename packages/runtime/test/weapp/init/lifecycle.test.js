@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 import { getLifeCycle, patchAppLifecycle, patchLifecycle } from '../../../weapp/init';
-import { WEAPP_APP_LIFECYCLE } from '../../../shared';
+import { WEAPP_APP_LIFECYCLE } from '../../../src/shared';
 
 import MockWxAPI from '../../mock/wxapi';
 

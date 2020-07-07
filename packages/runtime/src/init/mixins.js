@@ -1,5 +1,5 @@
-import { isArr } from '../../shared/index';
-import { WEAPP_LIFECYCLE } from '../../shared/index';
+import { isArr } from '../shared/index';
+import { WEAPP_LIFECYCLE } from '../shared/index';
 import { config } from '../config';
 import $global from '../global';
 

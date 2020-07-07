@@ -2,7 +2,7 @@ import { handleError } from './error';
 import {
   //isIOS,
   isNative
-} from './../../shared/env';
+} from '../shared/env';
 
 const callbacks = [];
 let pending = false;

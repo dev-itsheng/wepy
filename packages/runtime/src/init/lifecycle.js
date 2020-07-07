@@ -8,14 +8,14 @@ import { initRender } from './render';
 import { initData } from './data';
 import { initComputed } from './computed';
 import { initMethods } from './methods';
-import { isArr, isFunc, isStr } from '../../shared/index';
+import { isArr, isFunc, isStr } from '../shared/index';
 import Dirty from '../class/Dirty';
 import {
   WEAPP_APP_LIFECYCLE,
   WEAPP_PAGE_LIFECYCLE,
   WEAPP_COMPONENT_LIFECYCLE,
   WEAPP_COMPONENT_PAGE_LIFECYCLE
-} from '../../shared/index';
+} from '../shared/index';
 import { warn } from '../util/index';
 
 let comid = 0;

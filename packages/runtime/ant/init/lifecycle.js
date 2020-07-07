@@ -10,9 +10,9 @@ import { initData } from '../../weapp/init/data';
 import { initComputed } from '../../weapp/init/computed';
 import { initMethods } from './methods';
 import { initEvents } from './events';
-import { isArr, isFunc } from '../../shared/index';
+import { isArr, isFunc } from '../../src/shared/index';
 import Dirty from '../../weapp/class/Dirty';
-import { WEAPP_APP_LIFECYCLE, WEAPP_PAGE_LIFECYCLE, WEAPP_COMPONENT_LIFECYCLE } from '../../shared/index';
+import { WEAPP_APP_LIFECYCLE, WEAPP_PAGE_LIFECYCLE, WEAPP_COMPONENT_LIFECYCLE } from '../../src/shared/index';
 import { warn } from '../../weapp/util/index';
 
 let comid = 0;

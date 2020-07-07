@@ -1,6 +1,6 @@
 import Base from './../../weapp/class/Base';
 import Watcher from './../../weapp/observer/watcher';
-import { isArr, isPlainObject } from '../../shared/index';
+import { isArr, isPlainObject } from '../../src/shared/index';
 import { renderNextTick } from './../../weapp/util/next-tick';
 
 export default class WepyComponent extends Base {

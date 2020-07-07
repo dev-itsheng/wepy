@@ -1,5 +1,5 @@
 import WepyComponent from './WepyComponent';
-import { isStr, isNum, isObj, isUndef, isFunc } from '../../shared/index';
+import { isStr, isNum, isObj, isUndef, isFunc } from '../../src/shared/index';
 
 // eslint-disable-next-line
 let wx = my;
