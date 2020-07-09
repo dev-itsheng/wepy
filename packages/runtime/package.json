@@ -21,7 +21,7 @@
     "typescript": "^3.3.3"
   },
   "dependencies": {
-    "miniprogram-api-typings": "^2.10.3-1"
+    "miniprogram-api-typings": "^2.11.0"
   },
   "gitHead": "5a25776457360bbbbc54a4d059f6bc7c032d5df3"
 }
