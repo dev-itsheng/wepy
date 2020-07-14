@@ -1,7 +1,7 @@
 import Watcher from './../observer/watcher';
 import { callUserHook } from './hooks';
 import { clone } from './../util/index';
-import { renderFlushCallbacks } from './../util/next-tick';
+import { executeAndClearNextTickCallbacks } from './../util/next-tick';
 
 export function resetDirty(vm) {
   vm.$dirtyKey = {};
@@ -40,10 +40,10 @@ export function initRender(vm, keys, computedKeys) {
             Object.assign(dirtyFromAttach, dirty);
           } else if (dirtyFromAttach) {
             // setData in attached
-            vm.$wx.setData(Object.assign(dirtyFromAttach, dirty || {}), renderFlushCallbacks);
+            vm.$wx.setData(Object.assign(dirtyFromAttach, dirty || {}), executeAndClearNextTickCallbacks);
             dirtyFromAttach = null;
           } else {
-            vm.$wx.setData(dirty, renderFlushCallbacks);
+            vm.$wx.setData(dirty, executeAndClearNextTickCallbacks);
           }
         }
       }

@@ -2,7 +2,7 @@ import Base from './Base';
 import Watcher from '../observer/watcher';
 import { isArr, isPlainObject } from '../shared/index';
 
-import { renderNextTick } from '../util/next-tick';
+import { addNextTickCallback } from '../util/next-tick';
 
 export default class WepyComponent extends Base {
   $watch(expOrFn, cb, options) {
@@ -54,4 +54,4 @@ export default class WepyComponent extends Base {
   }
 }
 
-WepyComponent.prototype.$nextTick = renderNextTick;
+WepyComponent.prototype.$nextTick = addNextTickCallback;
