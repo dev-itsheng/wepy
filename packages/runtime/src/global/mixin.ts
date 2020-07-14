@@ -5,9 +5,7 @@
 
 import 'miniprogram-api-typings/types/wx/';
 
-type data = object
-
-interface mixin extends Partial<
+export interface mixinType extends Partial<
   // App() 中的生命周期
   WechatMiniprogram.App.Option &
 
@@ -28,21 +26,13 @@ interface mixin extends Partial<
   },
 }
 
-const mixin: mixin = {
-  data: {
-
-  },
-  methods: {
-  }
-}
-
-const globalMixins: mixin[] = [];
+const globalMixins: mixinType[] = [];
 
 /**
  * 将被赋值给 `wepy.mixin()`，用于全局添加 mixin
  * @param mixin
  */
-export const addGlobalMixin = (mixin: mixin) => {
+export const addGlobalMixin = (mixin: mixinType) => {
   globalMixins.push(mixin);
 };
 
@@ -50,4 +40,4 @@ export const addGlobalMixin = (mixin: mixin) => {
  * 用于合并全局 mixins 和 `wepy.app()` / `wepy.page()` / `wepy.component()` 中传入的 mixins
  * @param mixins
  */
-export const composeGlobalMixins = (mixins: mixin[]) => [...globalMixins, ...mixins];
+export const composeGlobalMixins = (mixins: mixinType[]) => [...globalMixins, ...mixins];

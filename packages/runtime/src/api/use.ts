@@ -1,15 +1,19 @@
-import { isFunc } from '../shared/index';
+import wepy from '../index';
 
-export default (plugin, ...args) => {
-  if (plugin.installed) {
-    return this;
+type wepyType = typeof wepy;
+
+interface pluginType {
+  install: (wepy: wepyType, ...args: any[]) => void;
+}
+
+const installedPlugins: pluginType[] = [];
+
+export default function(plugin: pluginType, ...args: any[]) {
+  if (installedPlugins.includes(plugin)) {
+    return;
   }
 
-  let install = plugin.install || plugin;
+  plugin.install(this, ...args);
 
-  if (isFunc(install)) {
-    install.apply(plugin, [this].concat(args));
-  }
-
-  plugin.installed = 1;
+  installedPlugins.push(plugin);
 }

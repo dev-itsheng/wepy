@@ -135,5 +135,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.15"
   }
 }
