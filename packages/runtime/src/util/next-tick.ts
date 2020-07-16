@@ -7,10 +7,7 @@ const nextTickCallbacks: Callback[] = [];
  * 即在界面更新渲染完毕后执行队列中的全部回调函数并清空队列。
  */
 export const executeAndClearNextTickCallbacks = () => {
-  for (const nextTickCallback of nextTickCallbacks) {
-    nextTickCallback();
-  }
-
+  nextTickCallbacks.forEach(nextTickCallback => void nextTickCallback());
   nextTickCallbacks.length = 0;
 };
 
@@ -23,10 +20,8 @@ export function addNextTickCallback(callback: Callback): void;
 export function addNextTickCallback(): Promise<void>;
 export function addNextTickCallback(callback?: Callback) {
   if (callback) {
-    nextTickCallbacks.push(() => callback());
+    nextTickCallbacks.push(callback);
   } else {
-    let closurePromiseResolve: () => void;
-    nextTickCallbacks.push(() => void closurePromiseResolve());
-    return new Promise<void>(resolve => void (closurePromiseResolve = resolve));
+    return new Promise<void>(resolve => void nextTickCallbacks.push(resolve));
   }
 }
