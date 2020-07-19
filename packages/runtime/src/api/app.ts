@@ -1,4 +1,8 @@
-import 'miniprogram-api-typings/types/wx/lib.wx.app';
+import 'miniprogram-api-typings/types/wx';
+
+type AppConfig = WechatMiniprogram.App.Option;
+
+
 
 import { patchMixins, patchAppLifecycle } from '../init/index';
 

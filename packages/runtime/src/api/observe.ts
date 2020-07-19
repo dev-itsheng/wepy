@@ -1,1 +1,1 @@
-export {observe as default} from '../observer/index';
+export { observe as default } from '../observer/index';

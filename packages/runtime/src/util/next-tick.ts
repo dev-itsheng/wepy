@@ -7,7 +7,7 @@ const nextTickCallbacks: Callback[] = [];
  * 即在界面更新渲染完毕后执行队列中的全部回调函数并清空队列。
  */
 export const executeAndClearNextTickCallbacks = () => {
-  nextTickCallbacks.forEach(nextTickCallback => void nextTickCallback());
+  nextTickCallbacks.forEach(callback => void callback());
   nextTickCallbacks.length = 0;
 };
 

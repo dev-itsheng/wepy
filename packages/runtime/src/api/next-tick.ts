@@ -1,1 +1,1 @@
-export {addNextTickCallback as default} from '../util/next-tick';
+export { addNextTickCallback as default } from '../util/next-tick';

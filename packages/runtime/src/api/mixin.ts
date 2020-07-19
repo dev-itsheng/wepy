@@ -1,1 +1,1 @@
-export {addGlobalMixin as default} from '../global/mixin';
+export { addGlobalMixin as default } from '../util/mixin';

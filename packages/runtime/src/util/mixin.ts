@@ -3,7 +3,7 @@
 
 // import WechatMiniprogram from 'miniprogram-api-typings/types/wx/lib.wx.app';
 
-import 'miniprogram-api-typings/types/wx/';
+import 'miniprogram-api-typings/types/wx';
 
 export interface Mixin extends Partial<
   // App() 中的生命周期
