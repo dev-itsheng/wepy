@@ -1,3 +1,6 @@
+/**
+ * 应用生命周期
+ */
 export const WEAPP_APP_LIFECYCLE = [
   'onLaunch',
   'onShow',
@@ -8,6 +11,9 @@ export const WEAPP_APP_LIFECYCLE = [
   'onThemeChange'
 ];
 
+/**
+ * 页面生命周期
+ */
 export const WEAPP_PAGE_LIFECYCLE = [
   'onLoad',
   'onShow',
@@ -23,13 +29,41 @@ export const WEAPP_PAGE_LIFECYCLE = [
   'onTabItemTap'
 ];
 
-export const WEAPP_COMPONENT_LIFECYCLE = ['beforeCreate', 'created', 'attached', 'ready', 'moved', 'detached', 'error'];
+/**
+ * 自定义的组件生命周期，用于插件初始化
+ */
+export const WEAPP_COMPONENT_CUSTOM_LIFECYCLE = [
+  'beforeCreate'
+];
 
-export const WEAPP_COMPONENT_PAGE_LIFECYCLE = ['show', 'hide', 'resize'];
+/**
+ * 组件生命周期
+ */
+export const WEAPP_COMPONENT_LIFECYCLE = [
+  'created',
+  'attached',
+  'ready',
+  'moved',
+  'detached',
+  'error'
+];
 
+/**
+ * 组件所在页面的生命周期
+ */
+export const WEAPP_COMPONENT_PAGE_LIFECYCLE = [
+  'show',
+  'hide',
+  'resize'
+];
+
+/**
+ * 所有生命周期
+ */
 export const WEAPP_LIFECYCLE = [
   ...WEAPP_APP_LIFECYCLE,
   ...WEAPP_PAGE_LIFECYCLE,
+  ...WEAPP_COMPONENT_CUSTOM_LIFECYCLE,
   ...WEAPP_COMPONENT_LIFECYCLE,
   ...WEAPP_COMPONENT_PAGE_LIFECYCLE
 ];

@@ -36,6 +36,7 @@ const callUserMethod = function(vm, userOpt, method, args) {
   return result;
 };
 
+// 没卵用
 export const getLifeCycle = (defaultLifecycle, rel, type) => {
   let lifecycle = defaultLifecycle.concat([]);
   if (rel && rel.lifecycle && rel.lifecycle[type]) {

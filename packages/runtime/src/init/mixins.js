@@ -3,6 +3,8 @@ import { WEAPP_LIFECYCLE } from '../shared/index';
 import { config } from '../config';
 import $global from '../global';
 
+
+
 // [Default Strategy]
 // Update if it's not exist in output. Can be replaced by option[key].
 // e.g.

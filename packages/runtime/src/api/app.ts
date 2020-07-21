@@ -2,15 +2,40 @@ import 'miniprogram-api-typings/types/wx';
 
 type AppConfig = WechatMiniprogram.App.Option;
 
-
-
-import { patchMixins, patchAppLifecycle } from '../init/index';
-
-export default (option, rel) => {
-  let appConfig = {};
-
-  patchMixins(appConfig, option, option.mixins);
-  patchAppLifecycle(appConfig, option, rel);
-
-  return App(appConfig);
+interface Rel {
+  info: {
+    components: {
+      [component: string]: {
+        path: string
+      }
+    },
+    on: object
+  },
+  handlers: {
+    [eventId: string]: {
+      [eventName: string]: Function
+    }
+  },
+  models: {
+    [modelId: number]: {
+      type: string,
+      expr: string,
+      handler: Function
+    }
+  },
+  refs: object | void
 }
+
+import { patchMixins } from '../init/mixins';
+import {patchAppLifecycle} from '../init/lifecycle';
+
+
+// @ts-ignore
+// @ts-ignore
+export default (option, rel: Rel) => (
+  option
+    |> patchMixins
+    |> patchAppLifecycle
+    |> App
+);
+
