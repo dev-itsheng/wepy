@@ -13,7 +13,7 @@ const mergeOptionFromMixin = (option, mixin: Mixin) => {
       optionMergeStrategies.hasOwnProperty(key) ?
 
         // 如果有，则使用
-        optionMergeStrategies[key](mergedOption, value) :
+        optionMergeStrategies[key](option[key], value) :
 
         // 如果没有，则执行简单的合并策略
         // 如果组件选项对象中没有该键名，则使用 mixin 中的值

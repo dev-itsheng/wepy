@@ -1,4 +1,5 @@
 import { WEAPP_LIFECYCLE } from '../constant/lifecycle';
+import { isArray } from 'lodash-es';
 
 /**
  * 定义 mixin 的合并策略。
@@ -13,8 +14,15 @@ import { WEAPP_LIFECYCLE } from '../constant/lifecycle';
  */
 const optionMergeStrategies = {};
 
-const mergeObject = (optionObject: object, mixinObject: object) => 1 && { ...mixinObject, ...optionObject };
-const mergeLifecycle = (optionLifecycle: Function[], mixinLifecycle: Function) => [mixinLifecycle, ...optionLifecycle];
+const mergeObject = (optionObject: object = {}, mixinObject: object) => 1 && { ...mixinObject, ...optionObject };
+
+const mergeLifecycle = (optionLifecycle: Function[] | Function = [], mixinLifecycle: Function) => {
+  if (!isArray(optionLifecycle)) {
+    optionLifecycle = [optionLifecycle as Function];
+  }
+
+  return [mixinLifecycle, ...optionLifecycle as Function[]];
+};
 
 for (const strategy of ['data', 'props', 'methods', 'computed', 'watch', 'hooks']) {
   optionMergeStrategies[strategy] = mergeObject;
