@@ -17,27 +17,20 @@ export function remove(arr, item) {
 }
 
 /**
- * Check if a string starts with $ or _
- */
-export function isReserved(str) {
-  const c = (str + '').charCodeAt(0);
-  return c === 0x24 || c === 0x5f;
-}
-
-/**
  * Define a property.
  */
-export function def(obj, key, val, enumerable) {
+export const def = (obj: object, key: string, val: any, enumerable = false) => {
   Object.defineProperty(obj, key, {
     value: val,
     enumerable: !!enumerable,
     writable: true,
     configurable: true
   });
-}
+};
 
 /**
  * Parse simple path.
+ * （准备删除）
  */
 const bailRE = /[^\w.$]/;
 export function parsePath(path) {

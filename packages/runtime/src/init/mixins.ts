@@ -1,5 +1,6 @@
 import { composeGlobalMixins, Mixin } from '../util/mixin';
 import config from '../api/config';
+import { omit } from 'lodash-es';
 
 const { optionMergeStrategies } = config;
 
@@ -27,4 +28,7 @@ const mergeOptionFromMixin = (option, mixin: Mixin) => {
   return mergedOption;
 }
 
-export const patchMixins = option => composeGlobalMixins(option.mixins || []).reduce(mergeOptionFromMixin, option);
+/**
+ * 将去掉 mixin 属性的 option 作为初始元素，与所有的 mixins 进行组合
+ */
+export const patchMixins = option => composeGlobalMixins(option.mixins || []).reduce(mergeOptionFromMixin, omit(option, ['mixin']));

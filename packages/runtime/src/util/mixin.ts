@@ -29,7 +29,7 @@ export interface Mixin extends Partial<
 const globalMixins: Mixin[] = [];
 
 /**
- * 将被赋值给 `wepy.mixin()`，用于全局添加 mixin
+ * 将被赋值给 `wepy.mixin`，用于全局添加 mixin
  * @param mixin
  */
 export const addGlobalMixin = (mixin: Mixin) => {

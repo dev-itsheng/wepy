@@ -11,6 +11,8 @@ import { isArray } from 'lodash-es';
  * 对 data / props / methods / computed / watch / hooks 对象进行浅合并（单个属性深合并），在冲突情况下，以高优先级为准。
  *
  * 对生命周期函数，将合并到一个数组中，按照优先级从低到高的顺序调用。
+ *
+ * 对 behavior，将两个数组进行合并
  */
 const optionMergeStrategies = {};
 
@@ -31,6 +33,9 @@ for (const strategy of ['data', 'props', 'methods', 'computed', 'watch', 'hooks'
 for (const strategy of WEAPP_LIFECYCLE) {
   optionMergeStrategies[strategy] = mergeLifecycle;
 }
+
+// @ts-ignore
+optionMergeStrategies.behaviors = (optionBehaviors = [], mixinBehaviors: any[]) => [...optionBehaviors, ...mixinBehaviors];
 
 export default {
   optionMergeStrategies
