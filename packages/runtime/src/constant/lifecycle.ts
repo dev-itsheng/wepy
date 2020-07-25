@@ -30,16 +30,10 @@ export const WEAPP_PAGE_LIFECYCLE = [
 ];
 
 /**
- * 自定义的组件生命周期，用于插件初始化
- */
-export const WEAPP_COMPONENT_CUSTOM_LIFECYCLE = [
-  'beforeCreate'
-];
-
-/**
  * 组件生命周期
  */
 export const WEAPP_COMPONENT_LIFECYCLE = [
+  'beforeCreate',   // 自定义的组件生命周期，用于插件初始化
   'created',
   'attached',
   'ready',
@@ -63,7 +57,6 @@ export const WEAPP_COMPONENT_PAGE_LIFECYCLE = [
 export const WEAPP_LIFECYCLE = [
   ...WEAPP_APP_LIFECYCLE,
   ...WEAPP_PAGE_LIFECYCLE,
-  ...WEAPP_COMPONENT_CUSTOM_LIFECYCLE,
   ...WEAPP_COMPONENT_LIFECYCLE,
   ...WEAPP_COMPONENT_PAGE_LIFECYCLE
 ];
