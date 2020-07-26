@@ -27,15 +27,17 @@ interface Rel {
 }
 
 import { patchMixins } from '../init/mixins';
-import {patchAppLifecycle} from '../init/lifecycle';
+import { patchAppLifecycle } from '../init/lifecycle';
+import { patchAppMethods } from '../init/methods';
+import { patchApp$wepy } from '../init/$wepy';
 
 
-// @ts-ignore
-// @ts-ignore
 export default (option, rel: Rel) => (
   option
     |> patchMixins
     |> patchAppLifecycle
+    |> patchAppMethods
+    |> (option => patchApp$wepy(option, rel))
     |> App
 );
 
