@@ -1,4 +1,9 @@
 import 'miniprogram-api-typings/types/wx';
+import { mergeMixins } from '../init/mixins';
+import { patchAppLifecycle } from '../init/lifecycle';
+
+
+import WepyApp from '../class/wepy-app';
 
 type AppConfig = WechatMiniprogram.App.Option;
 
@@ -26,18 +31,20 @@ interface Rel {
   refs: object | void
 }
 
-import { patchMixins } from '../init/mixins';
-import { patchAppLifecycle } from '../init/lifecycle';
-import { patchAppMethods } from '../init/methods';
-import { patchApp$wepy } from '../init/$wepy';
+const transformOptionsToVM = (options: object) => {
+  return new WepyApp(options);
+}
 
+const buildNativeAppOptions = (vm: WepyApp) => {
+  return patchAppLifecycle(vm);
+}
 
-export default (option, rel: Rel) => (
-  option
-    |> patchMixins
-    |> patchAppLifecycle
-    |> patchAppMethods
-    |> (option => patchApp$wepy(option, rel))
-    |> App
-);
+// @ts-ignore
+export default (options: object) => {
 
+  options
+    |> mergeMixins
+    |> transformOptionsToVM
+    |> buildNativeAppOptions
+    |> App;
+};

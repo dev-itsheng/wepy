@@ -1,6 +1,7 @@
 import config from './config';
 import { warn } from './debug';
 
+// @ts-ignore
 export function handleError(err, vm, info) {
   if (vm) {
     let cur = vm;

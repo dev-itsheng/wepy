@@ -16,9 +16,11 @@
   "_id": "@wepy/core@2.0.0-alpha.16",
   "_commitid": "a78dcb6",
   "devDependencies": {
+    "@types/lodash-es": "^4.17.3",
     "esm": "^3.2.25",
+    "lodash-es": "^4.17.15",
     "mocha": "^8.0.1",
-    "typescript": "^3.3.3"
+    "typescript": "^4.0.2"
   },
   "dependencies": {
     "miniprogram-api-typings": "^2.11.0"

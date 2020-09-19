@@ -21,7 +21,7 @@ export function initRender(vm, keys, computedKeys) {
       if (vm.$dirty.length() || dirtyFromAttach) {
         let keys = vm.$dirty.get('key');
         computedKeys.forEach(key => vm[key]);
-        let dirty = vm.$dirty.pop();
+        let dirty = vm.$dirty.getAndReset();
 
         // TODO: reset subs
         Object.keys(keys).forEach(key => clone(vm[key]));
